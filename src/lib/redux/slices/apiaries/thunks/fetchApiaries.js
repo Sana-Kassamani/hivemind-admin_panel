@@ -29,7 +29,11 @@ export const fetchApiariesCases = (builder) => {
     state.isLoading = false;
     action.payload.forEach((apiary) => {
       const { hives, tasks, ...rest } = apiary;
-      state.apiaries[apiary._id] = rest;
+      state.apiaries[apiary._id] = {
+        ...rest,
+        hivesNb: hives.length,
+        tasksNb: tasks.length,
+      };
     });
   });
   builder.addCase(fetchApiaries.rejected, (state, action) => {

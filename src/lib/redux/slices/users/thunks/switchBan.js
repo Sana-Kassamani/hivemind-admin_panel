@@ -22,16 +22,16 @@ export const banUserCases = (builder) => {
   builder.addCase(banUser.fulfilled, (state, action) => {
     const { _id, userType, settings } = action.payload;
 
-    if (userType == "Beekeeper") {
+    if (userType === "Beekeeper") {
       state.beekeepers = state.beekeepers.map((b) => {
-        if (b._id == _id) {
+        if (b._id === _id) {
           return { ...b, settings: { ...b.settings, banned: settings.banned } };
         }
         return b;
       });
-    } else if (userType == "Owner") {
+    } else if (userType === "Owner") {
       state.owners = state.owners.map((o) => {
-        if (o._id == _id) {
+        if (o._id === _id) {
           return { ...o, settings: { ...o.settings, banned: settings.banned } };
         }
         return o;
