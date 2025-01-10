@@ -1,16 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { fetchApiaries } from "../../thunks/fetchApiaries";
 
 const hivesInitialState = {
   hives: {},
 };
-const hives = createSlice({
+const hivesSlice = createSlice({
   name: "hives",
   initialState: hivesInitialState,
   reducers: {
-    load: (current, { payload }) => {
-      const { apiaryId, hives } = payload;
-      current.hives[apiaryId] = hives;
+    clear: (current) => {
+      current.hives = {};
     },
   },
   extraReducers: (builder) => {
@@ -23,4 +22,4 @@ const hives = createSlice({
   },
 });
 
-export default hives.reducer;
+export default hivesSlice.reducer;
