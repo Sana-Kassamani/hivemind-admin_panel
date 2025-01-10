@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsersCases, fetchUsers } from "./fetchUsers";
+import { fetchUsersCases, fetchUsers } from "./thunks/fetchUsers";
 import { act } from "react";
+import { banUser, banUserCases } from "./thunks/switchBan";
 
 const usersInitialState = {
   beekeepers: [],
@@ -19,6 +20,7 @@ const usersSlice = createSlice({
   },
   extraReducers: (builder) => {
     fetchUsersCases(builder);
+    banUserCases(builder);
   },
 });
 
