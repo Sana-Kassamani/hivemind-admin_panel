@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/thunks/login";
-import { fetchUsers } from "../../redux/thunks/fetchUsers";
-import { fetchApiaries } from "../../redux/thunks/fetchApiaries";
+import { login } from "../../redux/slices/auth/login";
+import { fetchUsers } from "../../redux/slices/users/fetchUsers";
+import { fetchApiaries } from "../../redux/slices/apiaries/fetchApiaries";
 
 const Login = () => {
   const { loggedAdmin, isLoading, error } = useSelector((state) => state.auth);

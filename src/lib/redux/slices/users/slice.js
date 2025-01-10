@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsersCases, fetchUsers } from "../../thunks/fetchUsers";
+import { fetchUsersCases, fetchUsers } from "./fetchUsers";
 import { act } from "react";
 
 const usersInitialState = {
