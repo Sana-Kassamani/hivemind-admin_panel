@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/thunks/login";
+import { fetchUsers } from "../../redux/thunks/fetchUsers";
+import { fetchApiaries } from "../../redux/thunks/fetchApiaries";
 
 const Login = () => {
   const { loggedAdmin, isLoading, error } = useSelector((state) => state.auth);
@@ -13,6 +15,8 @@ const Login = () => {
   useEffect(() => {
     dispatch(login(form));
     console.log("User logged in");
+    dispatch(fetchUsers());
+    dispatch(fetchApiaries());
   }, []);
   return (
     <div>

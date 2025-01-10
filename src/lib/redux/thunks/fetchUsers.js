@@ -14,7 +14,7 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   }
 });
 
-export const fetchCases = (builder) => {
+export const fetchUsersCases = (builder) => {
   builder.addCase(fetchUsers.pending, (state) => {
     state.isLoading = true;
   });
