@@ -10,3 +10,5 @@ const usersSlice = createSlice({
   initialState: usersInitialState,
   reducers: {},
 });
+
+export default usersSlice.reducer;
