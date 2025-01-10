@@ -20,22 +20,3 @@ export function createApiariesData(
 ) {
   return { name, location, hivesNb, tasksNb, beekeeper, detailsBtn };
 }
-
-export const fillApiariesRows = ({ setRows, apiaries, beekeepers }) => {
-  const newRows = [];
-  Object.entries(apiaries).forEach(([key, apiary]) => {
-    const name =
-      beekeepers.find((b) => b.assignedApiary === apiary._id)?.username || "";
-    newRows.push(
-      createApiariesData(
-        apiary.label,
-        apiary.location,
-        apiary.hivesNb,
-        apiary.tasksNb,
-        capitalize(name),
-        <Button>Details</Button>
-      )
-    );
-  });
-  setRows(newRows);
-};
