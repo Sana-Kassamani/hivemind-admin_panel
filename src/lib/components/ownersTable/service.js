@@ -18,3 +18,16 @@ export function createOwnersData(
 ) {
   return { username, email, apiariesNb, banBtn, unbanBtn };
 }
+
+export const fillOwnersRows = ({ setRows, owners }) => {
+  const newRows = owners.map((o) => {
+    return createOwnersData(
+      o.username,
+      o.email,
+      owners.apiaries.length,
+      <Button>Ban</Button>,
+      <Button>Unban</Button>
+    );
+  });
+  setRows(newRows);
+};
