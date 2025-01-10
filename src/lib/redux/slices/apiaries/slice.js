@@ -16,7 +16,11 @@ const apiariesInitialState = {
 const apiariesSlice = createSlice({
   name: "apiaries",
   initialState: apiariesInitialState,
-  reducers: {},
+  reducers: {
+    clear: (current) => {
+      current.apiaries = {};
+    },
+  },
   extraReducers: (builder) => {
     fetchApiariesCases(builder);
   },
