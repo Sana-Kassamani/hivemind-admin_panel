@@ -16,3 +16,18 @@ export const login = createAsyncThunk("auth/login", async (credentials) => {
     console.log(error);
   }
 });
+
+export const loginCases = (builder) => {
+  builder.addCase(login.pending, (state) => {
+    state.isLoading = true;
+  });
+  builder.addCase(login.fulfilled, (state, action) => {
+    state.isLoading = false;
+    state.loggedAdmin = action.payload.user;
+    localStorage.setItem("token", action.payload.token);
+  });
+  builder.addCase(login.rejected, (state, action) => {
+    state.isLoading = false;
+    state.error = action.error.message;
+  });
+};
