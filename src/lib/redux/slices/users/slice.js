@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCases, fetchUsers } from "../../thunks/fetchUsers";
+import { fetchUsersCases, fetchUsers } from "../../thunks/fetchUsers";
 import { act } from "react";
 
 const usersInitialState = {
@@ -13,7 +13,7 @@ const usersSlice = createSlice({
   initialState: usersInitialState,
   reducers: {},
   extraReducers: (builder) => {
-    fetchCases(builder);
+    fetchUsersCases(builder);
   },
 });
 

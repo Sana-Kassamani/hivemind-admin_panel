@@ -1,3 +1,8 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Apiary } from "../slices/apiaries/slice";
+import { request } from "../../../core/utils/request";
+import { useDispatch } from "react-redux";
+
 export const fetchApiaries = createAsyncThunk(
   "apiaries/fetchApiaries",
   async () => {
@@ -5,7 +10,9 @@ export const fetchApiaries = createAsyncThunk(
       const response = await request({
         route: "apiaries",
       });
+
       if (response.status === 200) {
+        console.log("Apiaries are", response.data);
         return response.data;
       }
     } catch (error) {
@@ -13,3 +20,20 @@ export const fetchApiaries = createAsyncThunk(
     }
   }
 );
+
+export const fetchApiariesCases = (builder) => {
+  builder.addCase(fetchApiaries.pending, (state) => {
+    state.isLoading = true;
+  });
+  builder.addCase(fetchApiaries.fulfilled, (state, action) => {
+    state.isLoading = false;
+    action.payload.forEach((apiary) => {
+      const { hives, tasks, ...rest } = apiary;
+      state.apiaries[apiary._id] = rest;
+    });
+  });
+  builder.addCase(fetchApiaries.rejected, (state, action) => {
+    state.isLoading = false;
+    state.error = action.error.message;
+  });
+};
