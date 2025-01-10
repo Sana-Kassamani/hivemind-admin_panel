@@ -11,7 +11,12 @@ const usersInitialState = {
 const usersSlice = createSlice({
   name: "users",
   initialState: usersInitialState,
-  reducers: {},
+  reducers: {
+    clear: (current) => {
+      current.beekeepers = [];
+      current.owners = [];
+    },
+  },
   extraReducers: (builder) => {
     fetchUsersCases(builder);
   },
