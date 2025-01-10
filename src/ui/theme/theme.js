@@ -8,3 +8,51 @@ export const colors = {
   cardColor: "#fcfcfc",
   dividerColor: "#E1E1E1",
 };
+const themeSettings = () => {
+  return {
+    palette: {
+      primary: {
+        main: colors.primary,
+      },
+      secondary: {
+        main: colors.secondary,
+      },
+      background: {
+        default: colors.backgroundColor,
+      },
+      neutral: {
+        main: colors.cardColor,
+      },
+    },
+    typography: {
+      fontFamily: "Comme",
+      fontSize: 18,
+      h1: {
+        fontFamily: "Tomorrow",
+        fontSize: 24,
+      },
+      h2: {
+        fontFamily: "Comme",
+        fontSize: 20,
+      },
+      h3: {
+        fontFamily: "Comme",
+        fontSize: 18,
+      },
+      h4: {
+        fontFamily: "Comme",
+        fontSize: 18,
+      },
+      h5: {
+        fontFamily: "Comme",
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: "Comme",
+        fontSize: 12,
+      },
+    },
+  };
+};
+
+export const theme = createTheme(themeSettings());
