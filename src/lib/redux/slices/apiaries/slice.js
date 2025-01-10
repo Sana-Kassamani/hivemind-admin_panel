@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchApiariesCases } from "../../thunks/fetchApiaries";
 
-class Apiary {
-  constructor(id, label, location) {
+export class Apiary {
+  constructor({ id, label, location }) {
     this.id = id;
     this.label = label;
     this.location = location;
   }
 }
 const apiariesInitialState = {
-  apiaries: new Map(),
+  apiaries: {},
   isLoading: false,
   error: null,
 };
@@ -16,7 +17,9 @@ const apiariesSlice = createSlice({
   name: "apiaries",
   initialState: apiariesInitialState,
   reducers: {},
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    fetchApiariesCases(builder);
+  },
 });
 
 export default apiariesSlice.reducer;
