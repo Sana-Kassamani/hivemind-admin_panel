@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { request } from "../../../../core/utils/request";
+import { request } from "../../../../../core/utils/request";
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   try {

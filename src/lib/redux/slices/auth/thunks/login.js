@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { request } from "../../../../core/utils/request";
-import { requestMethods } from "../../../../core/enums/RequestMethods";
+import { request } from "../../../../../core/utils/request";
+import { requestMethods } from "../../../../../core/enums/RequestMethods";
 
 export const login = createAsyncThunk("auth/login", async (credentials) => {
   try {

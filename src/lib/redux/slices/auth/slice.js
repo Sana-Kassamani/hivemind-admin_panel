@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginCases } from "./login";
+import { loginCases } from "./thunks/login";
 
 const authInitialState = {
   loggedAdmin: null,

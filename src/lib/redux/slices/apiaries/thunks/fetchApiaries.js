@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Apiary } from "./slice";
-import { request } from "../../../../core/utils/request";
+import { Apiary } from "../slice";
+import { request } from "../../../../../core/utils/request";
 import { useDispatch } from "react-redux";
 
 export const fetchApiaries = createAsyncThunk(

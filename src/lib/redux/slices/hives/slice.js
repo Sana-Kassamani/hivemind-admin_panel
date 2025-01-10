@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { fetchApiaries } from "../apiaries/fetchApiaries";
+import { fetchApiaries } from "../apiaries/thunks/fetchApiaries";
 
 const hivesInitialState = {
   hives: {},

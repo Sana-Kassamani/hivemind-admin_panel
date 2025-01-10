@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchApiaries } from "../apiaries/fetchApiaries";
+import { fetchApiaries } from "../apiaries/thunks/fetchApiaries";
 
 const tasksInitialState = {
   tasks: {},

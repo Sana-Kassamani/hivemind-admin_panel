@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchApiariesCases } from "./fetchApiaries";
+import { fetchApiariesCases } from "./thunks/fetchApiaries";
 
 export class Apiary {
   constructor({ id, label, location }) {
