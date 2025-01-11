@@ -1,4 +1,6 @@
 import { Button } from "@mui/material";
+import CustomButton from "../button";
+import { BanButton, UnbanButton } from "../banButton";
 
 export const ownersColumns = [
   { id: "username", label: "Username", minWidth: 170 },
@@ -20,12 +22,13 @@ export function createOwnersData(
 
 export const fillOwnersRows = ({ setRows, owners }) => {
   const newRows = owners.map((o) => {
+    console.log("Owner id :", o._id);
     return createOwnersData(
       o.username,
       o.email,
       o.apiaries.length,
-      <Button>Ban</Button>,
-      <Button>Unban</Button>
+      <BanButton userId={o._id} isDisabled={o.settings.banned} />,
+      <UnbanButton userId={o._id} isDisabled={!o.settings.banned} />
     );
   });
   setRows(newRows);
