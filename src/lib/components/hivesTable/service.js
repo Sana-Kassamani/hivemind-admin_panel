@@ -11,16 +11,14 @@ export function createHivesData(label, framesNb, health) {
 export const fillHivesRows = ({ setRows, hives, apiaryId }) => {
   const newRows = [];
   console.log("apiary hives: ", hives[apiaryId]);
-  if (hives[apiaryId].length > 0) {
-    hives[apiaryId].forEach((hive) => {
-      newRows.push(
-        createHivesData(
-          hive.label,
-          hive.nbOfFrames,
-          hive.diseases.length == 0 ? "Healthy" : "Diseased"
-        )
-      );
-    });
-    setRows(newRows);
-  }
+  hives[apiaryId].forEach((hive) => {
+    newRows.push(
+      createHivesData(
+        hive.label,
+        hive.nbOfFrames,
+        hive.diseases.length == 0 ? "Healthy" : "Diseased"
+      )
+    );
+  });
+  setRows(newRows);
 };
