@@ -8,6 +8,8 @@ import { ThemeProvider } from "@emotion/react";
 import { theme } from "../ui/theme/theme";
 import { CssBaseline } from "@mui/material";
 import Panel from "./pages/Panel";
+import Apiaries from "./pages/Apiaries";
+import Users from "./pages/Users";
 
 const App = () => {
   return (
@@ -17,8 +19,11 @@ const App = () => {
         <BrowserRouter>
           {/* <div className=""></div> */}
           <Routes>
-            <Route path="/" element={<Panel />} />
             <Route path="/" element={<Login />} />
+            <Route element={<Panel />}>
+              <Route path="/apiaries" element={<Apiaries />} />
+              <Route path="/panel" element={<Users />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
