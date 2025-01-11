@@ -7,17 +7,26 @@ import {
   fillHivesRows,
   hivesColumns,
 } from "./service";
+import { Typography } from "@mui/material";
 
 const HivesTable = () => {
   const apiaryId = "677ae340d963de5ec1f4c5ce";
-  const { hives } = useSelector((state) => state.hives);
+  const { hives, isLoading } = useSelector((state) => state.hives);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    fillHivesRows({ setRows, hives, apiaryId });
+    if (!isLoading) {
+      fillHivesRows({ setRows, hives, apiaryId });
+    }
   }, [hives]);
 
-  return <DataTable rows={rows} columns={hivesColumns} title="Hives" />;
+  return isLoading ? (
+    <Typography>Loading</Typography>
+  ) : (
+    <div>
+      <DataTable rows={rows} columns={hivesColumns} title="Hives" />
+    </div>
+  );
 };
 
 export default HivesTable;
