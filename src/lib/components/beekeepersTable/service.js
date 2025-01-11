@@ -1,3 +1,6 @@
+import { Button } from "@mui/material";
+import { capitalize } from "../../../core/utils/capitalize";
+
 export const beekeepersColumns = [
   { id: "username", label: "Username", minWidth: 170 },
   { id: "email", label: "Email", minWidth: 200 },
@@ -17,3 +20,27 @@ export function createBeekeepersData(
 ) {
   return { username, email, owner, apiary, banBtn, unbanBtn };
 }
+
+export const fillBeekeepersRows = ({
+  setRows,
+  owners,
+  beekeepers,
+  apiaries,
+}) => {
+  const newRows = beekeepers.map((b) => {
+    const owner = owners.find((o) =>
+      o.apiaries.find((a) => b.assignedApiary === a)
+    );
+    console.log("Assigned ", b.assignedApiary);
+    const apiary = apiaries[b.assignedApiary];
+    return createBeekeepersData(
+      b.username,
+      b.email,
+      owner ? capitalize(owner.username) : "_",
+      apiary ? apiary.label : "No Apiary Assigned",
+      <Button>Ban</Button>,
+      <Button>Unban</Button>
+    );
+  });
+  setRows(newRows);
+};
