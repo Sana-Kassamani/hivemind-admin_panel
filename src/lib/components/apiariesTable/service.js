@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { capitalize } from "../../../core/utils/capitalize";
 
 export const apiariesColumns = [
-  { id: "name", label: "Label", minWidth: 170 },
+  { id: "label", label: "Label", minWidth: 170 },
   { id: "location", label: "Location", minWidth: 200 },
   { id: "hivesNb", label: "Hives Count", minWidth: 100 },
   { id: "tasksNb", label: "Tasks Count", minWidth: 100 },
@@ -11,14 +11,14 @@ export const apiariesColumns = [
 ];
 
 export function createApiariesData(
-  name,
+  label,
   location,
   hivesNb,
   tasksNb,
   beekeeper,
   detailsBtn
 ) {
-  return { name, location, hivesNb, tasksNb, beekeeper, detailsBtn };
+  return { label, location, hivesNb, tasksNb, beekeeper, detailsBtn };
 }
 
 export const fillApiariesRows = ({ setRows, apiaries, beekeepers }) => {
