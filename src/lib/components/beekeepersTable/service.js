@@ -6,3 +6,14 @@ export const beekeepersColumns = [
   { id: "banBtn", label: "", minWidth: 100 },
   { id: "unbanBtn", label: "", minWidth: 100 },
 ];
+
+export function createBeekeepersData(
+  username,
+  email,
+  owner,
+  apiary,
+  banBtn,
+  unbanBtn
+) {
+  return { username, email, owner, apiary, banBtn, unbanBtn };
+}
