@@ -15,3 +15,18 @@ export const BanButton = ({ userId, isDisabled }) => {
   }
   return <CustomButton text={"Ban"} isDisabled={isDisabled} onClick={ban} />;
 };
+
+export const UnbanButton = ({ userId, isDisabled }) => {
+  const dispatch = useDispatch();
+
+  function unban() {
+    const data = {
+      userId: userId,
+      state: false,
+    };
+    dispatch(banUser({ data }));
+  }
+  return (
+    <CustomButton text={"Unban"} isDisabled={isDisabled} onClick={unban} />
+  );
+};
