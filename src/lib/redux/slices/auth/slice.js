@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginCases } from "./thunks/login";
+import { logoutCases } from "./thunks/logout";
 
 const authInitialState = {
   loggedAdmin: null,
@@ -12,6 +13,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     loginCases(builder);
+    logoutCases(builder);
   },
 });
 
