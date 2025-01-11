@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
 import { capitalize } from "../../../core/utils/capitalize";
+
+import DetailsButton from "../detailsButton";
 
 export const apiariesColumns = [
   { id: "label", label: "Label", minWidth: 170 },
@@ -33,7 +34,7 @@ export const fillApiariesRows = ({ setRows, apiaries, beekeepers }) => {
         apiary.hivesNb,
         apiary.tasksNb,
         capitalize(name),
-        <Button>Details</Button>
+        <DetailsButton apiaryId={apiary._id} />
       )
     );
   });
