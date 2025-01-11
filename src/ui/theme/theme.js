@@ -56,6 +56,15 @@ const themeSettings = () => {
         fontSize: 12,
       },
     },
+    components: {
+      MuiListItemText: {
+        styleOverrides: {
+          primary: {
+            fontSize: "16px", // Primary text font size
+          },
+        },
+      },
+    },
   };
 };
 
