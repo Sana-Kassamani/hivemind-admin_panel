@@ -24,7 +24,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { capitalize } from "../../../core/utils/capitalize";
 import { colors } from "../../../ui/theme/theme";
-import "./style.css";
 
 const drawerWidth = "20%";
 const useStyles = makeStyles((theme) => ({
@@ -73,11 +72,11 @@ const SideBar = () => {
       {/* {list links} */}
       <List className={classes.list}>
         <div>
-          <ListItem>
+          <ListItem key={"name"}>
             <ListItemIcon>
               <AccountCircle color="secondary" />
             </ListItemIcon>
-            <ListItemText primary={capitalize(loggedAdmin.username)} />
+            <ListItemText primary={capitalize(loggedAdmin?.username)} />
           </ListItem>
           <Divider />
           <div className="listItemDiv">
