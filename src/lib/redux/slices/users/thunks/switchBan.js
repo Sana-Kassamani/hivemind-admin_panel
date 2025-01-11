@@ -1,16 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { request } from "../../../../../core/utils/request";
 import { requestMethods } from "../../../../../core/enums/RequestMethods";
-import { act } from "react";
 
-export const banUser = createAsyncThunk("users/banUser", async (data) => {
+export const banUser = createAsyncThunk("users/banUser", async ({ data }) => {
   try {
     const response = await request({
       route: "user-settings/ban",
       method: requestMethods.POST,
       body: data,
     });
-    if (response.status === 200) {
+    if (response.status === 201) {
       return response.data;
     }
   } catch (error) {
