@@ -24,7 +24,7 @@ export const fillOwnersRows = ({ setRows, owners }) => {
     return createOwnersData(
       o.username,
       o.email,
-      owners.apiaries.length,
+      o.apiaries.length,
       <Button>Ban</Button>,
       <Button>Unban</Button>
     );
