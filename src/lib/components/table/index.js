@@ -30,7 +30,7 @@ const DataTable = ({ columns, rows, title }) => {
         width: "100%",
         overflow: "hidden",
         padding: "30px",
-        margin: "30px",
+        // margin: "30px",
       }}
       className="flex column g30"
     >

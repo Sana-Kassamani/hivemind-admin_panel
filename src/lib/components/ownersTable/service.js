@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { capitalize } from "../../../core/utils/capitalize";
 
 export const ownersColumns = [
   { id: "username", label: "Username", minWidth: 170 },
