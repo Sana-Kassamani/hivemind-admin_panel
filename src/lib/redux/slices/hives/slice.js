@@ -1,8 +1,11 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { fetchApiaries } from "../apiaries/thunks/fetchApiaries";
+import { fetchHivesCases } from "./thunks/fetchHives";
 
 const hivesInitialState = {
   hives: {},
+  isLoading: false,
+  error: null,
 };
 const hivesSlice = createSlice({
   name: "hives",
@@ -13,12 +16,7 @@ const hivesSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchApiaries.fulfilled, (state, action) => {
-      action.payload.forEach((apiary) => {
-        const { hives, tasks, ...rest } = apiary;
-        state.hives[apiary._id] = hives;
-      });
-    });
+    fetchHivesCases(builder);
   },
 });
 
