@@ -2,6 +2,8 @@ import { createTheme } from "@mui/material";
 
 export const colors = {
   primary: "#FAD02C",
+  primaryLight: "#FEF2C2",
+  primaryDark: "#EDBE06",
   secondary: "#4F1308",
   textColor: "#050F24",
   backgroundColor: "#F0F2F5",
@@ -13,6 +15,8 @@ const themeSettings = () => {
     palette: {
       primary: {
         main: colors.primary,
+        light: colors.primaryLight,
+        dark: colors.primaryDark,
       },
       secondary: {
         main: colors.secondary,
