@@ -10,6 +10,7 @@ import { CssBaseline } from "@mui/material";
 import Panel from "./pages/Panel";
 import Apiaries from "./pages/Apiaries";
 import Users from "./pages/Users";
+import Details from "./pages/Details";
 
 const App = () => {
   return (
@@ -21,8 +22,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route element={<Panel />}>
-              <Route path="/apiaries" element={<Apiaries />} />
+              <Route path="/apiaries" element={<Apiaries />}></Route>
               <Route path="/panel" element={<Users />} />
+              <Route path="/apiaries/details/:id" element={<Details />} />
             </Route>
           </Routes>
         </BrowserRouter>
