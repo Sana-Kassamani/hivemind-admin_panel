@@ -3,6 +3,8 @@ import { fetchApiaries } from "../apiaries/thunks/fetchApiaries";
 
 const tasksInitialState = {
   tasks: {},
+  isLoading: false,
+  error: null,
 };
 const tasksSlice = createSlice({
   name: "tasks",
