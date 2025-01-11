@@ -8,6 +8,9 @@ import { useDispatch } from "react-redux";
 import { fetchApiaries } from "../../redux/slices/apiaries/thunks/fetchApiaries";
 import { login } from "../../redux/slices/auth/thunks/login";
 import ApiariesTable from "../../components/apiariesTable";
+import OwnersTable from "../../components/ownersTable";
+import BeekeepersTable from "../../components/beekeepersTable";
+import HivesTable from "../../components/hivesTable";
 
 const Panel = () => {
   const dispatch = useDispatch();
@@ -34,7 +37,15 @@ const Panel = () => {
       <SideBar></SideBar>
       {/* <StickyHeadTable></StickyHeadTable> */}
 
-      <ApiariesTable />
+      {/* <ApiariesTable /> */}
+      <Box
+        className="flex column g30 p30"
+        sx={{ width: "100%", overflowX: "auto" }}
+      >
+        <OwnersTable />
+        <BeekeepersTable />
+        <HivesTable />
+      </Box>
     </Box>
   );
 };
