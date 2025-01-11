@@ -21,9 +21,10 @@ import {
   PersonOutline,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { capitalize } from "../../../core/utils/capitalize";
 import { colors } from "../../../ui/theme/theme";
+import { logout } from "../../redux/slices/auth/thunks/logout";
 
 const drawerWidth = "20%";
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +50,7 @@ const SideBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const menuItems = [
     {
@@ -111,8 +113,9 @@ const SideBar = () => {
           <Divider />
           <ListItem
             button
-            onClick={() => {
-              // logout
+            onClick={async () => {
+              await dispatch(logout());
+              navigate("/");
             }}
           >
             <ListItemIcon>
