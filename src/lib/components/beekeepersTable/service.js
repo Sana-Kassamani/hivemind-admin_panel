@@ -36,7 +36,7 @@ export const fillBeekeepersRows = ({
     return createBeekeepersData(
       b.username,
       b.email,
-      owner ? capitalize(owner.username) : "_",
+      owner ? capitalize(owner.username) : "",
       apiary ? apiary.label : "No Apiary Assigned",
       <Button>Ban</Button>,
       <Button>Unban</Button>
