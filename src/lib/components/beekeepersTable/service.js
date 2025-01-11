@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { capitalize } from "../../../core/utils/capitalize";
+import { BanButton, UnbanButton } from "../banButton";
 
 export const beekeepersColumns = [
   { id: "username", label: "Username", minWidth: 170 },
@@ -38,8 +39,8 @@ export const fillBeekeepersRows = ({
       b.email,
       owner ? capitalize(owner.username) : "",
       apiary ? apiary.label : "No Apiary Assigned",
-      <Button>Ban</Button>,
-      <Button>Unban</Button>
+      <BanButton userId={b._id} isDisabled={b.settings.banned} />,
+      <UnbanButton userId={b._id} isDisabled={!b.settings.banned} />
     );
   });
   setRows(newRows);
