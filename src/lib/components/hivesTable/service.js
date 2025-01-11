@@ -10,12 +10,13 @@ export function createHivesData(label, framesNb, health) {
 
 export const fillHivesRows = ({ setRows, hives, apiaryId }) => {
   const newRows = [];
+  console.log("apiary hives: ", hives[apiaryId]);
   hives[apiaryId].forEach((hive) => {
     newRows.push(
       createHivesData(
         hive.label,
-        hive.nbOfframes,
-        hive.diseases.length == 0 ? "Health" : "Diseased"
+        hive.nbOfFrames,
+        hive.diseases.length == 0 ? "Healthy" : "Diseased"
       )
     );
   });
