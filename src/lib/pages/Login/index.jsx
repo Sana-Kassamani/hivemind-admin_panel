@@ -7,9 +7,10 @@ import { handleLogin, useForm, useLogin } from "./services";
 import CustomButton from "../../components/button";
 
 const Login = () => {
-  const { loggedAdmin, isLoading } = useSelector((state) => state.auth);
+  const { loggedAdmin, isLoading, error } = useSelector((state) => state.auth);
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [loginError, setError] = useState(error);
 
   const { handleFormChange, form } = useForm({
     username: "",
@@ -19,6 +20,7 @@ const Login = () => {
     form,
     setPasswordError,
     setUsernameError,
+    setError,
   });
 
   return (
@@ -87,6 +89,11 @@ const Login = () => {
             </p>
           )}
         </div>
+        {error && (
+          <Typography variant="h5" color="red">
+            {error}
+          </Typography>
+        )}
         <CustomButton text={"Login"} isDisabled={false} onClick={handleLogin} />
       </div>
     </div>

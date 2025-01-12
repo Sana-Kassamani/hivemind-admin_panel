@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
 import { request } from "../../../../../core/utils/request";
 import { requestMethods } from "../../../../../core/enums/RequestMethods";
 
 export const login = createAsyncThunk("auth/login", async (credentials) => {
   try {
     const response = await request({
-      route: "auth",
+      route: "auth/admin",
       method: requestMethods.POST,
       body: credentials,
     });
@@ -14,6 +14,7 @@ export const login = createAsyncThunk("auth/login", async (credentials) => {
     }
   } catch (error) {
     console.log(error);
+    throw error;
   }
 });
 
@@ -23,11 +24,13 @@ export const loginCases = (builder) => {
   });
   builder.addCase(login.fulfilled, (state, action) => {
     state.isLoading = false;
+    state.error = null;
     state.loggedAdmin = action.payload.user;
     localStorage.setItem("token", action.payload.token);
   });
   builder.addCase(login.rejected, (state, action) => {
     state.isLoading = false;
-    state.error = action.error.message;
+    console.log(action.error);
+    state.error = "Invalid Credentials";
   });
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect, useDebugValue } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/slices/auth/thunks/login";
 export const useForm = (initialValue) => {
@@ -34,8 +34,12 @@ export const useLogin = ({ form, setPasswordError, setUsernameError }) => {
       setUsernameError(false);
       setPasswordError(false);
       try {
-        await dispatch(login(form));
-        navigate("/panel");
+        const resultAction = await dispatch(login(form));
+        if (login.fulfilled.match(resultAction)) {
+          console.log("Login done");
+          // Navigate to a specific page after successful login
+          navigate("/panel"); // Replace '/dashboard' with your desired route
+        }
       } catch (error) {
         console.log(error);
       }
