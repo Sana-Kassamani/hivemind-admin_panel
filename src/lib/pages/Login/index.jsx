@@ -10,7 +10,6 @@ const Login = () => {
   const { loggedAdmin, isLoading, error } = useSelector((state) => state.auth);
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [loginError, setError] = useState(error);
 
   const { handleFormChange, form } = useForm({
     username: "",
@@ -20,81 +19,100 @@ const Login = () => {
     form,
     setPasswordError,
     setUsernameError,
-    setError,
   });
 
   return (
-    <div className="flex column justify-center align-center full-height">
-      <Typography variant="h1" sx={{ marginBottom: "20px" }}>
-        Welcome Back
-      </Typography>
-      <div className="flex column g12">
-        <div>
-          <TextField
-            label="Username"
-            variant="outlined"
-            color="secondary"
-            name="username"
-            error={usernameError}
-            aria-errormessage={usernameError ? "username-error" : undefined}
-            fullWidth
-            sx={{
-              display: "block",
-              "& .MuiInputBase-input": {
-                fontSize: "16px",
-              },
-              "& .MuiInputLabel-root": {
-                fontSize: "16px",
-              },
+    <div style={{ display: "flex", flexDirection: "row", gap: "100px" }}>
+      <div className="flex column justify-center align-center full-height">
+        <div style={{ flex: 1, overflow: "hidden" }}>
+          <img
+            src="/images/beekeeping.png"
+            alt="Welcome"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
             }}
-            onChange={handleFormChange}
           />
-          {usernameError && (
-            <p
-              id="username-error"
-              style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
-            >
-              Username is required
-            </p>
-          )}
         </div>
-        <div>
-          <TextField
-            type="password"
-            label="Password"
-            variant="outlined"
-            color="secondary"
-            name="password"
-            error={passwordError}
-            aria-errormessage={passwordError ? "password-error" : undefined}
-            fullWidth
-            sx={{
-              display: "block",
-              fontSize: "14px",
-              "& .MuiInputBase-input": {
-                fontSize: "16px",
-              },
-              "& .MuiInputLabel-root": {
-                fontSize: "16px",
-              },
-            }}
-            onChange={handleFormChange}
+      </div>
+
+      <div className="flex column justify-center align-center full-height">
+        <Typography variant="h1" sx={{ marginBottom: "20px" }}>
+          Welcome Back
+        </Typography>
+        <div className="flex column g12">
+          <div>
+            <TextField
+              label="Username"
+              variant="outlined"
+              color="secondary"
+              name="username"
+              error={usernameError}
+              aria-errormessage={usernameError ? "username-error" : undefined}
+              fullWidth
+              sx={{
+                display: "block",
+                "& .MuiInputBase-input": {
+                  fontSize: "16px",
+                },
+                "& .MuiInputLabel-root": {
+                  fontSize: "16px",
+                },
+              }}
+              onChange={handleFormChange}
+            />
+            {usernameError && (
+              <p
+                id="username-error"
+                style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
+              >
+                Username is required
+              </p>
+            )}
+          </div>
+          <div>
+            <TextField
+              type="password"
+              label="Password"
+              variant="outlined"
+              color="secondary"
+              name="password"
+              error={passwordError}
+              aria-errormessage={passwordError ? "password-error" : undefined}
+              fullWidth
+              sx={{
+                display: "block",
+                fontSize: "14px",
+                "& .MuiInputBase-input": {
+                  fontSize: "16px",
+                },
+                "& .MuiInputLabel-root": {
+                  fontSize: "16px",
+                },
+              }}
+              onChange={handleFormChange}
+            />
+            {passwordError && (
+              <p
+                id="password-error"
+                style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
+              >
+                Password is required
+              </p>
+            )}
+          </div>
+          {error && (
+            <Typography variant="h5" color="red">
+              {error}
+            </Typography>
+          )}
+          <CustomButton
+            text={"Login"}
+            isDisabled={false}
+            onClick={handleLogin}
           />
-          {passwordError && (
-            <p
-              id="password-error"
-              style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
-            >
-              Password is required
-            </p>
-          )}
         </div>
-        {error && (
-          <Typography variant="h5" color="red">
-            {error}
-          </Typography>
-        )}
-        <CustomButton text={"Login"} isDisabled={false} onClick={handleLogin} />
       </div>
     </div>
   );
