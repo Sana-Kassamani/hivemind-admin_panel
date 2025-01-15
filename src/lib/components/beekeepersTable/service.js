@@ -37,7 +37,7 @@ export const fillBeekeepersRows = ({
     return createBeekeepersData(
       b.username,
       b.email,
-      owner ? capitalize(owner.username) : "",
+      owner ? capitalize(owner.username) : "_",
       apiary ? apiary.label : "No Apiary Assigned",
       <BanButton userId={b._id} isDisabled={b.settings.banned} />,
       <UnbanButton userId={b._id} isDisabled={!b.settings.banned} />
