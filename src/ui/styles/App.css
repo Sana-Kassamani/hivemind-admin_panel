@@ -27,6 +27,15 @@ body {
 .full-height {
   height: 100vh;
 }
+.half-width {
+  width: 50vw;
+}
+.w40 {
+  width: 40vw;
+}
+.w60 {
+  width: 60vw;
+}
 .relative {
   position: relative;
 }
@@ -38,4 +47,19 @@ body {
 }
 .p30 {
   padding: 30px;
+}
+img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+.yellowbg {
+  background-color: #fad02c;
+}
+.yellowbglight {
+  background-color: #fef2c2;
+}
+.logoDiv {
+  width: 200px;
+  height: 200px;
 }
