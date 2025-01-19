@@ -116,6 +116,10 @@ const SideBar = () => {
             onClick={async () => {
               await dispatch(logout());
               navigate("/");
+              window.history.pushState(null, "", window.location.href);
+              window.onpopstate = () => {
+                window.history.pushState(null, "", window.location.href);
+              };
             }}
           >
             <ListItemIcon>
