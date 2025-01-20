@@ -3,7 +3,7 @@ export const tasksColumns = [
   { id: "content", label: "Content", minWidth: 150 },
   { id: "comment", label: "CommentCount", minWidth: 150 },
   { id: "status", label: "Status", minWidth: 100 },
-  { id: "date", label: "Date", minWidth: 120 },
+  { id: "date", label: "Date", minWidth: 150 },
 ];
 
 export function createTasksData(title, content, comment, status, date) {
